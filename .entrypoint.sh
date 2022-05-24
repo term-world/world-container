@@ -2,7 +2,6 @@
 
 set -x
 
-useradd $VS_USER
-mkdir /home/$VS_USER
-sudo su $VS_USER
+usermod --login $VS_USER --home /home/$VS_USER --move-home expendable
+su $VS_USER
 cd ~
