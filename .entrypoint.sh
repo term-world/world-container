@@ -2,7 +2,7 @@
 
 set -x
 
-useradd $VS_USER
-ln -s /home/$VS_USER /home/expendable
+useradd $VS_USER -s /bin/bash
+ln -s /home/expendable /home/$VS_USER
 su $VS_USER
 cd ~
