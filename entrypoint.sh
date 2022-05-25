@@ -6,4 +6,4 @@ useradd $VS_USER -s /bin/bash
 cd /home
 chown -R $VS_USER:$VS_USER /home/$VS_USER
 cd /home/$VS_USER
-su $VS_USER && code-server
+sudo -i -u dluman code-server
