@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
   python-is-python3
 RUN python -m pip install \
   requests \
-  json \
   gatorgrader
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 ADD https://raw.githubusercontent.com/term-world/world-container/main/entrypoint.sh entrypoint.sh
