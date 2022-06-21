@@ -9,5 +9,5 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 ADD https://raw.githubusercontent.com/term-world/world-container/main/entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
-WORKDIR /home/$VS_USER
+WORKDIR /home/$DISTRICT/$VS_USER
 ENTRYPOINT /entrypoint.sh
