@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export DISTRICT=`jq ".$VS_USER.district" .registry | tr -d '"'`
+export DISTRICT=`jq ".$VS_USER.district" /home/.registry | tr -d '"'`
 
 useradd $VS_USER -s /bin/bash
 usermod -d /home/$DISTRICT/$VS_USER $VS_USER
