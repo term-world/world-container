@@ -1,14 +1,12 @@
 #!/bin/sh
 
-#export DISTRICT=`jq ".$VS_USER.district" /home/.registry | tr -d '"'`
-
 useradd $VS_USER -s /bin/bash
-usermod -d /home/$DISTRICT/$VS_USER $VS_USER
+usermod -d /world/city/$DISTRICT/$VS_USER $VS_USER
 
-cd /home
+cd /world
 
-chown -R $VS_USER:$VS_USER $DISTRICT/$VS_USER
+chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
-cd $DISTRICT/$VS_USER
+cd city/$DISTRICT/$VS_USER
 
 sudo -i -u $VS_USER code-server
