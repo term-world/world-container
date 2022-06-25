@@ -13,6 +13,7 @@ RUN python -m pip install \
   requests \
   gatorgrader \
   python-dotenv
+RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/direvents.sh | cat >> /etc/bash.bashrc
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/gginstall.sh | sh
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 ADD https://raw.githubusercontent.com/term-world/world-container/main/entrypoint.sh entrypoint.sh
