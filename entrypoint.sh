@@ -7,6 +7,7 @@ usermod -aG $DISTRICT $VS_USER
 usermod -d /world/city/$DISTRICT/$VS_USER $VS_USER
 
 chown -R root:root /world
+chmod -R o-rx /world
 cd /world
 
 chown -R $VS_USER:$DISTRICT city/$DISTRICT
