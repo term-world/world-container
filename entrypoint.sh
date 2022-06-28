@@ -13,8 +13,6 @@ cd /world
 chown -R $VS_USER:$DISTRICT city/$DISTRICT
 chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
-mkdir -p city/$DISTRICT/$VS_USER/workshop
-
 cat /etc/profile.d/gatorgrader.sh >> city/$DISTRICT/$VS_USER/.bashrc
 
 sudo -i -u $VS_USER code-server
