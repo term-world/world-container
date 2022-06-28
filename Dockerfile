@@ -5,7 +5,9 @@ RUN apt-get update && apt-get install -y \
   curl \ 
   sudo \ 
   python3 \
+  python3-dev \
   python3-pip \
+  libcairo2-dev \
   python-is-python3
 RUN python -m pip install \
   typer \
