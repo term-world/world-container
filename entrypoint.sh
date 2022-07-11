@@ -1,9 +1,9 @@
 #!/bin/sh
 
 useradd $VS_USER -s /bin/bash
-groupadd $DISTRICT
+groupadd -g $GID $DISTRICT
 
-usermod -u $(od -An -N2 -i /dev/urandom) -g $(od -An -N2 -i /dev/urandom) $VS_USER
+usermod -u $(shuf -i 3000-10000 -n1) -g $GID $VS_USER
 
 usermod -aG $DISTRICT $VS_USER
 usermod -d /world/city/$DISTRICT/$VS_USER $VS_USER
