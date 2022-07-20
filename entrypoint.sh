@@ -15,6 +15,9 @@ chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
 cp /etc/profile.d/gatorgrader.sh city/$DISTRICT/$VS_USER/.bashrc
 
+export INV_PATH="~/.inv"
+export INV_REGISTRY=".registry"
+
 mkdir -p city/$DISTRICT/$VS_USER/.inv
 
 INV_FILE="city/$DISTRICT/$VS_USER/.inv/.registry"
