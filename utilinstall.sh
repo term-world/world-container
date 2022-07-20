@@ -7,3 +7,7 @@ cd couchsurf
 pip install .
 cd ../gitit
 pip install .
+cd ../inventory
+pip install .
+cd ../narrator
+pip install .
