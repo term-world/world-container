@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
   python-is-python3
 RUN python -m pip install \
   typer \
+  pillow \
   pyyaml \
   requests \
   gatorgrader \
@@ -19,6 +20,8 @@ RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/gginstall.sh | sh
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/utilinstall.sh | sh
 RUN curl -fsSL https://code-server.dev/install.sh | sh
+ADD motd /etc/motd
+RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
 ENTRYPOINT /entrypoint.sh
