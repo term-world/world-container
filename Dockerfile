@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
   libcairo2-dev \
   python-is-python3
 RUN python -m pip install \
+  rich \
   typer \
   pillow \
   pyyaml \

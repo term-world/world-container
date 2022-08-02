@@ -17,7 +17,7 @@ cp /etc/profile.d/gatorgrader.sh city/$DISTRICT/$VS_USER/.bashrc
 
 echo "alias get='f(){ python -c \"from inventory import Acquire\nAcquire(\\\"\$1\\\")\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
 echo "alias use='f(){ python -c \"import inventory\nimport sys\ninventory.items.use(\\\"\$1\\\")\" \"\$@\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "alias inventory='f(){ python -c \"import inventory\ninventory.list.display()\"; unset -f f;} f'" >> city/$DISTRICT/$VS_USER/.bashrc
+echo "alias inventory='f(){ python -c \"import inventory\ninventory.list.display()\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
 
 sed -i 's/FILE="gatorgrade.yml"/FILE=".gatorgrade.yml"/' /usr/local/lib/python3.10/dist-packages/gatorgrade/main.py
 
