@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y \
   git \
   curl \ 
   sudo \ 
+  wget \
   python3 \
   python3-dev \
   python3-pip \
@@ -21,6 +22,8 @@ RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/gginstall.sh | sh
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/utilinstall.sh | sh
 RUN curl -fsSL https://code-server.dev/install.sh | sh
+RUN curl -fsSL https://api.github.com/repos/term-world/term-poll/releases/latest | wget $(jq -r ".assets[].browser_download_url")
+RUN code-server --install-extension term-poll.vsix
 ADD motd /etc/motd
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 ADD entrypoint.sh entrypoint.sh
