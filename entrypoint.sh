@@ -1,6 +1,6 @@
 #!/bin/sh
 
-useradd $VS_USER -s /bin/bash
+useradd -u $VS_USER_ID $VS_USER -s /bin/bash
 groupadd -g $GID $DISTRICT
 
 usermod -u $(shuf -i 3000-10000 -n1) -g $GID $VS_USER
