@@ -3,7 +3,7 @@
 useradd -u $VS_USER_ID $VS_USER -s /bin/bash
 groupadd -g $GID $DISTRICT
 
-usermod -u $(shuf -i 3000-10000 -n1) -g $GID $VS_USER
+usermod -g $GID $VS_USER
 
 usermod -aG $DISTRICT $VS_USER
 usermod -d /world/city/$DISTRICT/$VS_USER $VS_USER
