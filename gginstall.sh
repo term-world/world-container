@@ -1,7 +1,5 @@
 #!/bin/sh
 
-git clone https://github.com/GatorEducator/gatorgrade.git
-cd gatorgrade
-cp -r gatorgrade /usr/local/lib/python3.10/dist-packages/
-touch /etc/profile.d/gatorgrader.sh
-echo "alias gatorgrade='python /usr/local/lib/python3.10/dist-packages/gatorgrade/main.py'" >> /etc/profile.d/gatorgrader.sh
+sudo python -m pip install gatorgrade
+site=$(python -c "import site; print(f'{site.getsitepackages()[0]}/gatorgrade/main.py')")
+sudo sed -i 's/FILE = "gatorgrade.yml"/FILE = ".gatorgrade.yml"/' $site
