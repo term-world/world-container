@@ -34,4 +34,6 @@ else
   echo "{}" >> $INV_FILE
 fi
 
+sudo -i -u $VS_USER code-server --install-extension /term-world-theme.vsix
+sudo -i -u $VS_USER code-server --install-extension /term-world-launcher.vsix
 sudo -i -u $VS_USER code-server
