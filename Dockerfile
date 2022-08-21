@@ -22,8 +22,10 @@ RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/gginstall.sh | sh
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/utilinstall.sh | sh
 RUN curl -fsSL https://code-server.dev/install.sh | sh
-RUN curl -fsSL https://api.github.com/repos/term-world/term-poll/releases/latest | wget $(jq -r ".assets[].browser_download_url")
-RUN code-server --install-extension term-poll.vsix
+# RUN curl -fsSL https://api.github.com/repos/term-world/term-poll/releases/latest | wget $(jq -r ".assets[].browser_download_url")
+RUN curl -fsSL https://api.github.com/repos/term-world/term-world-theme/releases/latest | wget $(jq -r ".assets[].browser_download_url")
+# RUN code-server --install-extension term-poll.vsix
+RUN code-server --install-extension term-world-theme.vsix
 ADD motd /etc/motd
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 ADD entrypoint.sh entrypoint.sh
