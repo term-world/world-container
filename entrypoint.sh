@@ -13,13 +13,15 @@ cd /world
 chown -R $VS_USER:$DISTRICT city/$DISTRICT
 chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
-cp /etc/profile.d/gatorgrader.sh city/$DISTRICT/$VS_USER/.bashrc
 
-echo "alias get='f(){ python -c \"from inventory import Acquire\nAcquire(\\\"\$1\\\")\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "alias use='f(){ python -c \"import inventory\nimport sys\ninventory.items.use(\\\"\$1\\\")\" \"\$@\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "alias inventory='f(){ python -c \"import inventory\ninventory.list.display()\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-
-sed -i 's/FILE="gatorgrade.yml"/FILE=".gatorgrade.yml"/' /usr/local/lib/python3.10/dist-packages/gatorgrade/main.py
+if ! grep -qF "##### term-world config #####" city/$DISTRICT/$VS_USER/.bashrc; then
+  echo "##### term-world config #####" >> city/$DISTRICT/$VS_USER/.bashrc
+  echo "alias get='f(){ python -c \"from inventory import Acquire\nAcquire(\\\"\$1\\\")\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
+  echo "alias use='f(){ python -c \"import inventory\nimport sys\ninventory.items.use(\\\"\$1\\\")\" \"\$@\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
+  echo "alias inventory='f(){ python -c \"import inventory\ninventory.list.display()\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
+  echo "export PYTHONDONTWRITEBYTECODE=1" >> city/$DISTRICT/$VS_USER/.bashrc
+  echo "##### term-world config #####" >> city/$DISTRICT/$VS_USER/.bashrc
+fi
 
 export INV_PATH="~/.inv"
 export INV_REGISTRY=".registry"
