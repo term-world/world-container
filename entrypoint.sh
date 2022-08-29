@@ -10,7 +10,7 @@ usermod -d /world/city/$DISTRICT/$VS_USER $VS_USER
 
 cd /world
 
-chown -R $VS_USER:$DISTRICT city/$DISTRICT
+chown -R root:$DISTRICT city/$DISTRICT
 chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
 
