@@ -31,7 +31,7 @@ mkdir -p city/$DISTRICT/$VS_USER/.inv
 INV_FILE="city/$DISTRICT/$VS_USER/.inv/.registry"
 
 if [ -f $INV_FILE ]; then
-  echo "NOTHING TO DO"
+  echo "INVENTORY FILE EXISTS"
 else
   echo "{}" >> $INV_FILE
 fi
