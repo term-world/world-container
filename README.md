@@ -24,6 +24,7 @@ launching a container requires:
 |Environment variable |Purpose                                                           |
 |:--------------------|:-----------------------------------------------------------------|
 |`VS_USER`            |The in-world user meant for the container instance                |
+|`VS_USER_ID`         |The id of the user meant for container instance                   |
 |`DISTRICT`           |The name of the district of which the user is a member            |
 |`GID`                |The `gid` of the group associated with the `DISTRICT`             |
 
@@ -33,4 +34,5 @@ Some of these, including the `GID` are products of the
 ## Disclaimer
 
 If you're reading this, much of this work is still largely in _alpha_. This means that it's
-more than likely that this infrastructure still requires a fair amount of manual build.
+more than likely that this infrastructure still requires a fair amount of manual build _and_
+that this is more-than-likely single-use specific.
