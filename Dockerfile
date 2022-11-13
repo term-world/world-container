@@ -3,6 +3,7 @@ RUN apt-get update && apt-get install -y \
   jq \
   git \
   curl \ 
+  nano \
   sudo \ 
   wget \
   python3 \
