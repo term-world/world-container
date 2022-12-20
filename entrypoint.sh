@@ -18,9 +18,9 @@ echo "RC_VERSION=$RC_VERSION"
 # Deleting all .bashrc command instances in preparation
 # for migration to /etc/profile.d/world-cmd
 
-sed -i '/^#/,/=1/d' .bashrc
-sed -i '/'1\.*'/,/#####/d' .bashrc
-sed -i '/#/d' .bashrc
+sed -i '/^#/,/=1/d' city/$DISTRICT/$VS_USER/.bashrc
+sed -i '/'1\.*'/,/#####/d' city/$DISTRICT/$VS_USER/.bashrc
+sed -i '/#/d' city/$DISTRICT/$VS_USER.bashrc
 
 echo "##### term-world config $RC_VERSION #####" >> city/$DISTRICT/$VS_USER/.bashrc
 echo "alias get='f(){ python -c \"from inventory import Acquire\nAcquire(\\\"\$1\\\",\\\"\$2\\\")\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
