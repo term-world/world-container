@@ -13,7 +13,14 @@ cd /world
 chown root:$DISTRICT city/$DISTRICT
 chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
-sed -i '/'"$RC_VERSION"'/,/#####/d' .bashrc
+echo "RC_VERSION=$RC_VERSION"
+
+# Deleting all .bashrc command instances in preparation
+# for migration to /etc/profile.d/world-cmd
+
+sed -i '/^#/,/=1/d' .bashrc
+sed -i '/'1\.*'/,/#####/d' .bashrc
+sed -i '/#/d' .bashrc
 
 echo "##### term-world config $RC_VERSION #####" >> city/$DISTRICT/$VS_USER/.bashrc
 echo "alias get='f(){ python -c \"from inventory import Acquire\nAcquire(\\\"\$1\\\",\\\"\$2\\\")\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc

@@ -32,4 +32,5 @@ ADD motd /etc/motd
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
+ENV RC_VERSION=$RC_VERSION
 ENTRYPOINT /entrypoint.sh
