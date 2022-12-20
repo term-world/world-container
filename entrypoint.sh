@@ -13,9 +13,9 @@ cd /world
 chown root:$DISTRICT city/$DISTRICT
 chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
-sed -i '/'"$VERSION"'/,/#####/d' .bashrc
+sed -i '/'"$RC_VERSION"'/,/#####/d' .bashrc
 
-echo "##### term-world config $VERSION #####" >> city/$DISTRICT/$VS_USER/.bashrc
+echo "##### term-world config $RC_VERSION #####" >> city/$DISTRICT/$VS_USER/.bashrc
 echo "alias get='f(){ python -c \"from inventory import Acquire\nAcquire(\\\"\$1\\\",\\\"\$2\\\")\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
 echo "alias use='f(){ python -c \"import inventory\nimport sys\ninventory.items.use(\\\"\$1\\\")\" \"\$@\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
 echo "alias inventory='f(){ python -c \"import inventory\ninventory.list.display()\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc

@@ -1,5 +1,5 @@
 FROM ubuntu
-ARG VERSION
+ARG RC_VERSION
 RUN apt-get update && apt-get install -y \
   jq \
   git \
