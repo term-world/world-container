@@ -1,5 +1,4 @@
 FROM ubuntu
-ARG RC_VERSION
 RUN apt-get update && apt-get install -y \
   jq \
   git \
@@ -30,7 +29,7 @@ RUN code-server --install-extension term-world-theme.vsix
 RUN code-server --install-extension term-world-launcher.vsix
 ADD motd /etc/motd
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
+ADD world-cmd.sh /etc/profile.d/world-cmd.sh
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
-ENV RC_VERSION=$RC_VERSION
 ENTRYPOINT /entrypoint.sh

@@ -13,23 +13,6 @@ cd /world
 chown root:$DISTRICT city/$DISTRICT
 chown -R $VS_USER:$VS_USER city/$DISTRICT/$VS_USER
 
-echo "RC_VERSION=$RC_VERSION"
-
-# Deleting all .bashrc command instances in preparation
-# for migration to /etc/profile.d/world-cmd
-
-sed -i '/^#/,/=1/d' city/$DISTRICT/$VS_USER/.bashrc
-sed -i '/'1\.*'/,/#####/d' city/$DISTRICT/$VS_USER/.bashrc
-sed -i '/#/d' city/$DISTRICT/$VS_USER.bashrc
-
-echo "##### term-world config $RC_VERSION #####" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "alias get='f(){ python -c \"from inventory import Acquire\nAcquire(\\\"\$1\\\",\\\"\$2\\\")\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "alias use='f(){ python -c \"import inventory\nimport sys\ninventory.items.use(\\\"\$1\\\")\" \"\$@\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "alias inventory='f(){ python -c \"import inventory\ninventory.list.display()\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "alias remove='f(){ python -c \"import inventory\nimport sys\ninventory.items.trash(\\\"\$1\\\",\\\"\$2\\\")\" \"\$@\"; unset -f f;}; f'" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "export PYTHONDONTWRITEBYTECODE=1" >> city/$DISTRICT/$VS_USER/.bashrc
-echo "##### term-world config #####" >> city/$DISTRICT/$VS_USER/.bashrc
-
 export INV_PATH="~/.inv"
 export INV_REGISTRY=".registry"
 
