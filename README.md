@@ -29,7 +29,7 @@ launching a container requires:
 |`GID`                |The `gid` of the group associated with the `DISTRICT`             |
 
 Some of these, including the `GID` are products of the 
-`[world-configure](https://github.com/term-world/world-configure)` Ruby script. 
+`[world-configure](https://github.com/term-world/world-configure)` `bash` script.
 
 ## Disclaimer
 
