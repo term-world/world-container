@@ -12,7 +12,7 @@ dispatcher, `[term-hub](https://github.com/term-world/term-hub)`.
 To retrieve this container from the GitHub Container Registry:
 
 ```
-docker pull ghcr.io/term-world/world:latest
+docker pull ghcr.io/term-world/latest:latest
 ```
 
 ### Using independent from `term-hub`
