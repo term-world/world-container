@@ -15,3 +15,5 @@ cd ..
 pip install .
 cd ../narrator
 pip install .
+cd ../worldlib
+pip install .
