@@ -12,11 +12,13 @@ RUN apt-get update && apt-get install -y \
   python3-pip \
   libcairo2-dev \
   python-is-python3
+
 RUN python -m pip install \
   rich \
   typer \
   pillow \
   pyyaml \
+  arglite \
   requests \
   gatorgrader \
   python-dotenv
