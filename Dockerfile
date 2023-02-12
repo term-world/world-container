@@ -33,6 +33,9 @@ RUN curl -fsSl https://api.github.com/repos/term-world/term-launcher/releases/la
 RUN code-server --install-extension term-world-theme.vsix
 RUN code-server --install-extension term-world-launcher.vsix
 
+ADD ext/bierner.markdown-checkbox-0.4.0.vsix bierner.markdown-checkbox-0.4.0.vsix
+RUN code-server --install-extension bierner.markdown-checkbox-0.4.0.vsix
+
 ADD motd /etc/motd
 
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
