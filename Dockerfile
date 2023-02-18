@@ -30,11 +30,11 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN curl -fsSL https://api.github.com/repos/term-world/term-world-theme/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 RUN curl -fsSl https://api.github.com/repos/term-world/term-launcher/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 
-RUN code-server --install-extension term-world-theme.vsix
-RUN code-server --install-extension term-world-launcher.vsix
+#RUN code-server --install-extension term-world-theme.vsix
+#RUN code-server --install-extension term-world-launcher.vsix
 
 ADD ext/bierner.markdown-checkbox-0.4.0.vsix bierner.markdown-checkbox-0.4.0.vsix
-RUN code-server --install-extension bierner.markdown-checkbox-0.4.0.vsix
+#RUN code-server --install-extension bierner.markdown-checkbox-0.4.0.vsix
 
 ADD motd /etc/motd
 

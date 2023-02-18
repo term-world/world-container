@@ -30,4 +30,5 @@ sudo -i -u $VS_USER source /etc/profile.d/world-cmd.sh
 
 sudo -i -u $VS_USER code-server --install-extension /term-world-theme.vsix
 sudo -i -u $VS_USER code-server --install-extension /term-world-launcher.vsix
+sudo -i -u $VS_USER code-server --install-extension /bierner.markdown-checkbox-0.4.0.vsix
 sudo -i -u $VS_USER code-server
