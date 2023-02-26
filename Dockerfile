@@ -19,6 +19,7 @@ RUN python -m pip install \
   pillow \
   pyyaml \
   arglite \
+  seaborn \
   requests \
   gatorgrader \
   python-dotenv
