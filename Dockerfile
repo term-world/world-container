@@ -21,6 +21,7 @@ RUN python -m pip install \
   arglite \
   seaborn \
   requests \
+  matplotlib \
   gatorgrader \
   python-dotenv
 
