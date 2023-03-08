@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build image
-        run: docker build . --build-arg DB_HOST=${{secrets.DB_HOST}} -t world:latest
+        run: docker build . -t world:latest
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       - name: Publish image

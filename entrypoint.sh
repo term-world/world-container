@@ -1,5 +1,14 @@
 #!/bin/sh
 
+ENV_MARKET="/etc/profile.d/world-market.sh"
+
+touch $ENV_MARKET
+
+echo "#!/bin/bash" >> $ENV_MARKET
+echo "export DB_HOST=$DB_HOST" >> $ENV_MARKET
+echo "export DB_USER=$DB_USER" >> $ENV_MARKET
+echo "export DB_PASS=$DB_PASS" >> $ENV_MARKET
+
 useradd -u $VS_USER_ID $VS_USER -s /bin/bash
 groupadd -g $GID $DISTRICT
 
@@ -31,4 +40,4 @@ sudo -i -u $VS_USER source /etc/profile.d/world-cmd.sh
 sudo -i -u $VS_USER code-server --install-extension /term-world-theme.vsix
 sudo -i -u $VS_USER code-server --install-extension /term-world-launcher.vsix
 sudo -i -u $VS_USER code-server --install-extension /bierner.markdown-checkbox-0.4.0.vsix
-sudo -i -u $VS_USER code-server
+sudo -i -u $VS_USER code-server --disable-getting-started-override
