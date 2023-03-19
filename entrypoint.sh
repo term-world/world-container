@@ -9,6 +9,9 @@ echo "export DB_HOST=$DB_HOST" >> $ENV_MARKET
 echo "export DB_USER=$DB_USER" >> $ENV_MARKET
 echo "export DB_PASS=$DB_PASS" >> $ENV_MARKET
 
+echo "export OPENAI_KEY=$OPEN_AI_KEY" >> $ENV_MARKET
+echo "export OPENAI_ORG=$OPEN_AI_ORG" >> $ENV_MARKET
+
 useradd -u $VS_USER_ID $VS_USER -s /bin/bash
 groupadd -g $GID $DISTRICT
 
