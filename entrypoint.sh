@@ -1,16 +1,18 @@
 #!/bin/sh
 
 ENV_MARKET="/etc/profile.d/world-market.sh"
+ENV_HELPER="/etc/profile.d/world-helper.sh"
 
 touch $ENV_MARKET
+touch $ENV_HELPER
 
 echo "#!/bin/bash" >> $ENV_MARKET
 echo "export DB_HOST=$DB_HOST" >> $ENV_MARKET
 echo "export DB_USER=$DB_USER" >> $ENV_MARKET
 echo "export DB_PASS=$DB_PASS" >> $ENV_MARKET
 
-echo "export OPENAI_KEY=$OPEN_AI_KEY" >> $ENV_MARKET
-echo "export OPENAI_ORG=$OPEN_AI_ORG" >> $ENV_MARKET
+echo "export OPEN_AI_KEY=$OPEN_AI_KEY" >> $ENV_HELPER
+echo "export OPEN_AI_ORG=$OPEN_AI_ORG" >> $ENV_HELPER
 
 useradd -u $VS_USER_ID $VS_USER -s /bin/bash
 groupadd -g $GID $DISTRICT
@@ -39,6 +41,7 @@ else
 fi
 
 sudo -i -u $VS_USER source /etc/profile.d/world-cmd.sh
+sudo -i -u $VS_USER source /etc/profile.d/world-market.sh
 
 sudo -i -u $VS_USER code-server --install-extension /term-world-theme.vsix
 sudo -i -u $VS_USER code-server --install-extension /term-world-launcher.vsix

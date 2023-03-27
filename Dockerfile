@@ -18,6 +18,7 @@ RUN python -m pip install \
   typer \
   pillow \
   pyyaml \
+  openai \
   arglite \
   seaborn \
   requests \
