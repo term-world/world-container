@@ -17,5 +17,7 @@ cd ../narrator
 pip install .
 cd ../helper
 pip install .
+cd ../resources
+pip install .
 cd ../worldlib
 pip install .
