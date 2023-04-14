@@ -8,7 +8,7 @@ pip install .
 cd ../gitit
 pip install .
 cd ../inventory
-cd src
+cd inventory
 dotenv set INV_PATH ~/.inv
 dotenv set INV_REGISTRY .registry
 cd ..

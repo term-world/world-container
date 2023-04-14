@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
   python3-dev \
   python3-pip \
   libcairo2-dev \
+  python3.10-venv \
   python-is-python3
 
 RUN python -m pip install \
