@@ -1,8 +1,7 @@
 FROM debian:stable-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN echo "America/New_York" > /etc/timezone
+ENV TZ=America/New_York
 
 RUN apt-get update && apt-get install -y \
   jq \
@@ -12,10 +11,8 @@ RUN apt-get update && apt-get install -y \
   sudo \
   tree \ 
   wget \
-  tzdata \ 
+  tzdata \
   libcairo2-dev
-
-RUN apt-get remove python3
 
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/direvents.sh | cat >> /etc/bash.bashrc
