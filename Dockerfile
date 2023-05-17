@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian:stable-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -13,30 +13,12 @@ RUN apt-get update && apt-get install -y \
   tree \ 
   wget \
   tzdata \ 
-  python3 \
-  python3-dev \
-  python3-pip \
-  libcairo2-dev \
-  python3.10-venv \
-  python-is-python3
+  libcairo2-dev
 
-RUN python -m pip install \
-  rich \
-  typer \
-  pillow \
-  pyyaml \
-  openai \
-  arglite \
-  seaborn \
-  requests \
-  matplotlib \
-  gatorgrader \
-  python-dotenv
+RUN apt-get remove python3
 
-RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/direvents.sh | cat >> /etc/bash.bashrc
-RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/gginstall.sh | sh
-RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/utilinstall.sh | sh
 RUN curl -fsSL https://code-server.dev/install.sh | sh
+RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main/direvents.sh | cat >> /etc/bash.bashrc
 RUN curl -fsSL https://api.github.com/repos/term-world/term-world-theme/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 RUN curl -fsSl https://api.github.com/repos/term-world/term-launcher/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 
