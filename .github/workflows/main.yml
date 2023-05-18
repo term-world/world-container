@@ -15,14 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build image
-        run: docker build -f ubuntu-contained/Dockerfile . -t world:self-contained
+        run: |
+          cd dockerfiles/ubuntu-contained
+          docker build -f Dockerfile . -t world:self-contained
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       - name: Publish image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/self-contained
-          docker tag world $IMAGE_ID:latest
-          docker push $IMAGE_ID:latest
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
+          docker tag world $IMAGE_ID:self-contained
+          docker push $IMAGE_ID:self-contained
   build-debian-slim:
     runs-on: ubuntu-latest
     permissions:
@@ -31,11 +33,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build image
-        run: docker build -f debian-slim/Dockerfile . -t world:slim
+        run: |
+          cd dockerfiles/debian-slim
+          docker build -f debian-slim/Dockerfile . -t topia:slim
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       - name: Publish image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/self-contained
-          docker tag world $IMAGE_ID:latest
-          docker push $IMAGE_ID:latest
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
+          docker tag world $IMAGE_ID:slim
+          docker push $IMAGE_ID:slim
