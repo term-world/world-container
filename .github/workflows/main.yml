@@ -17,13 +17,13 @@ jobs:
       - name: Build image
         run: |
           cd dockerfiles/topia/self-contained
-          docker build -f Dockerfile . -t world:self-contained
+          docker build -f Dockerfile . -t topia:self-contained
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       - name: Publish image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
-          docker tag world $IMAGE_ID:self-contained
+          docker tag topia $IMAGE_ID:self-contained
           docker push $IMAGE_ID:self-contained
   build-topia-slim:
     runs-on: ubuntu-latest
@@ -41,5 +41,5 @@ jobs:
       - name: Publish image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
-          docker tag world $IMAGE_ID:slim
+          docker tag topia $IMAGE_ID:slim
           docker push $IMAGE_ID:slim
