@@ -23,7 +23,7 @@ jobs:
       - name: Publish image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
-          docker tag topia $IMAGE_ID:self-contained
+          docker tag topia:self-contained $IMAGE_ID:self-contained
           docker push $IMAGE_ID:self-contained
   build-topia-slim:
     runs-on: ubuntu-latest
@@ -41,5 +41,5 @@ jobs:
       - name: Publish image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
-          docker tag topia $IMAGE_ID:slim
+          docker tag topia:slim $IMAGE_ID:slim
           docker push $IMAGE_ID:slim
