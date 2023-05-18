@@ -17,8 +17,6 @@ RUN apt-get update && apt-get install -y \
 ARG GITHUB_CDN=https://raw.githubusercontent.com/term-world/world-container/main
 
 RUN curl -fsSL $GITHUB_CDN/scripts/direvents.sh | cat >> /etc/bash.bashrc
-RUN curl -fsSL $GITHUB_CDN/scripts/gginstall.sh | sh
-RUN curl -fsSL $GITHUB_CDN/scripts/utilinstall.sh | sh
 
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
