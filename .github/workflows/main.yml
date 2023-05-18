@@ -35,7 +35,7 @@ jobs:
       - name: Build image
         run: |
           cd dockerfiles/debian-slim
-          docker build -f debian-slim/Dockerfile . -t topia:slim
+          docker build -f Dockerfile . -t topia:slim
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       - name: Publish image
