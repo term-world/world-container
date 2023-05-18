@@ -21,8 +21,8 @@ jobs:
       - name: Publish image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/self-contained
-          docker tag world $IMAGE_ID:self-contained
-          docker push $IMAGE_ID:self-contained
+          docker tag world $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
   build-debian-slim:
     runs-on: ubuntu-latest
     permissions:
@@ -37,5 +37,5 @@ jobs:
       - name: Publish image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/self-contained
-          docker tag world $IMAGE_ID:slim
-          docker push $IMAGE_ID:slim
+          docker tag world $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
