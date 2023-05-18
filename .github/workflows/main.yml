@@ -7,7 +7,7 @@ on:
     - cron: '0 0 * * 0'
 
 jobs:
-  build-self-contained:
+  build-topia-self-contained:
     runs-on: ubuntu-latest
     permissions:
         packages: write
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build image
         run: |
-          cd dockerfiles/ubuntu-contained
+          cd dockerfiles/topia/self-contained
           docker build -f Dockerfile . -t world:self-contained
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
@@ -25,7 +25,7 @@ jobs:
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
           docker tag world $IMAGE_ID:self-contained
           docker push $IMAGE_ID:self-contained
-  build-debian-slim:
+  build-topia-slim:
     runs-on: ubuntu-latest
     permissions:
         packages: write
@@ -34,8 +34,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build image
         run: |
-          cd dockerfiles/debian-slim
-          docker build -f debian-slim/Dockerfile . -t topia:slim
+          cd dockerfiles/topia/slim
+          docker build -f Dockerfile . -t topia:slim
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       - name: Publish image

@@ -1,8 +1,7 @@
-FROM ubuntu
+FROM debian:stable-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN echo "America/New_York" > /etc/timezone
+ENV TZ=America/New_York
 
 RUN apt-get update && apt-get install -y \
   jq \
@@ -12,26 +11,8 @@ RUN apt-get update && apt-get install -y \
   sudo \
   tree \ 
   wget \
-  tzdata \ 
-  python3 \
-  python3-dev \
-  python3-pip \
-  libcairo2-dev \
-  python3.10-venv \
-  python-is-python3
-
-RUN python -m pip install \
-  rich \
-  typer \
-  pillow \
-  pyyaml \
-  openai \
-  arglite \
-  seaborn \
-  requests \
-  matplotlib \
-  gatorgrader \
-  python-dotenv
+  tzdata \
+  libcairo2-dev
 
 ARG GITHUB_CDN=https://raw.githubusercontent.com/term-world/world-container/main
 
@@ -52,7 +33,7 @@ RUN cp motd /etc/motd
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 
 RUN wget $GITHUB_CDN/scripts/world-cmd.sh
-RUN cp $GITHUB_CDN/scripts/world-cmd.sh /etc/profile.d/world-cmd.sh
+RUN cp scripts/world-cmd.sh /etc/profile.d/world-cmd.sh
 
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
