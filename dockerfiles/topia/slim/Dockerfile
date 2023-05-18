@@ -31,7 +31,7 @@ RUN cp motd /etc/motd
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 
 RUN wget $GITHUB_CDN/scripts/world-cmd.sh
-RUN cp scripts/world-cmd.sh /etc/profile.d/world-cmd.sh
+RUN cp world-cmd.sh /etc/profile.d/world-cmd.sh
 
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
