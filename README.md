@@ -1,9 +1,14 @@
 # `term-world` World Container
 
-This repository contains the latest full `term-world` container build. This container
-incorporates all `term-world` packages and necessary Python modules for conducting
-the CMPSC 100 course at Allegheny College. It is designed for use with the associated
-dispatcher, `[term-hub](https://github.com/term-world/term-hub)`.
+This repository contains the latest full `term-world` container builds used in
+CMPSC 100 courses at Allegheny College. It is designed for use with the associated
+dispatcher, [`term-hub`](https://github.com/term-world/term-hub).
+
+This repository features different builds for divergent purposes. In practice, we
+use a Docker volume-hosted single Python instance (favoring `debian-slim`) to allow
+quicker all-world changes. Previously, we used the `self-contained` Ubuntu-based build.
+Some merits and disadvantages of these approaches are discussed in `README` documents
+contained alongside the `Dockerfile`s in the appropriate folders.
 
 ## Using this container
 
@@ -12,7 +17,8 @@ dispatcher, `[term-hub](https://github.com/term-world/term-hub)`.
 To retrieve this container from the GitHub Container Registry:
 
 ```
-docker pull ghcr.io/term-world/latest:latest
+docker pull ghcr.io/term-world/self-contained:latest
+docker pull ghcr.io/term-world/slim:latest
 ```
 
 ### Using independent from `term-hub`

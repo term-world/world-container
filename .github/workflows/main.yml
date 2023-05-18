@@ -7,7 +7,7 @@ on:
     - cron: '0 0 * * 0'
 
 jobs:
-  build:
+  build-self-contained:
     runs-on: ubuntu-latest
     permissions:
         packages: write
@@ -15,11 +15,27 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build image
-        run: docker build . -t world:latest
+        run: docker build -f ubuntu-contained/Dockerfile . -t world:self-contained
       - name: Log in to container registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       - name: Publish image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/latest
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/self-contained
+          docker tag world $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
+  build-debian-slim:
+    runs-on: ubuntu-latest
+    permissions:
+        packages: write
+        contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build image
+        run: docker build -f debian-slim/Dockerfile . -t world:slim
+      - name: Log in to container registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+      - name: Publish image
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/self-contained
           docker tag world $IMAGE_ID:latest
           docker push $IMAGE_ID:latest
