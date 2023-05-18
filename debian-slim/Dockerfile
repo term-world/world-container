@@ -19,14 +19,14 @@ RUN curl -fsSL https://raw.githubusercontent.com/term-world/world-container/main
 RUN curl -fsSL https://api.github.com/repos/term-world/term-world-theme/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 RUN curl -fsSl https://api.github.com/repos/term-world/term-launcher/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 
-ADD ../ext/bierner.markdown-checkbox-0.4.0.vsix bierner.markdown-checkbox-0.4.0.vsix
+ADD ext/bierner.markdown-checkbox-0.4.0.vsix bierner.markdown-checkbox-0.4.0.vsix
 
-ADD ../motd /etc/motd
+ADD motd /etc/motd
 
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 
-ADD ../world-cmd.sh /etc/profile.d/world-cmd.sh
-ADD ../entrypoint.sh entrypoint.sh
+ADD world-cmd.sh /etc/profile.d/world-cmd.sh
+ADD entrypoint.sh entrypoint.sh
 
 RUN chmod +x entrypoint.sh
 
