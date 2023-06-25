@@ -15,6 +15,8 @@ echo "export OPEN_AI_KEY=$OPEN_AI_KEY" >> $ENV_HELPER
 echo "export OPEN_AI_ORG=$OPEN_AI_ORG" >> $ENV_HELPER
 
 ln -s /world/.python/bin/python3 /usr/bin/python
+rm /usr/bin/python3
+ln -s /world/.python/bin/python3 /usr/bin/python3
 
 useradd -u $VS_USER_ID $VS_USER -s /bin/bash
 groupadd -g $GID $DISTRICT
