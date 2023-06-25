@@ -20,3 +20,11 @@ export PYTHONDONTWRITEBYTECODE=1
 
 source /etc/profile.d/world-market.sh
 source /etc/profile.d/world-helper.sh
+
+# Chompchain
+
+alias cmd_txn='f(){ last_cmd=$(history 1 | cut -c 8- | sed '\''s#\x22#\\x22#g'\'')
+python -c "from chompchainwallet.transaction import CmdTransaction;
+CmdTransaction(\"$last_cmd\")"; unset -f f;}; f'
+
+PROMPT_COMMAND=cmd_txn
