@@ -14,7 +14,7 @@ echo "export DB_PASS=$DB_PASS" >> $ENV_MARKET
 echo "export OPEN_AI_KEY=$OPEN_AI_KEY" >> $ENV_HELPER
 echo "export OPEN_AI_ORG=$OPEN_AI_ORG" >> $ENV_HELPER
 
-ln -s /world/.python/bin/python /usr/bin/python
+ln -s /world/.python/python3.11.5/bin/python3 /usr/bin/python
 
 useradd -u $VS_USER_ID $VS_USER -s /bin/bash
 groupadd -g $GID $DISTRICT

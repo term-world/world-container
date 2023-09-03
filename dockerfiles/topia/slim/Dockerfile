@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
   tzdata \
   libcairo2-dev
 
+RUN apt-get remove python3 -y
+
 ARG GITHUB_CDN=https://raw.githubusercontent.com/term-world/world-container/main
 
 RUN curl -fsSL $GITHUB_CDN/scripts/direvents.sh | cat >> /etc/bash.bashrc
