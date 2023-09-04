@@ -33,7 +33,7 @@ RUN cp motd /etc/motd
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 
 RUN wget $GITHUB_CDN/scripts/world-cmd.sh
-RUN wget $GITHUB_CDN/scripts/gatorgrader
+RUN wget $GITHUB_CDN/scripts/gatorgrade
 RUN wget $GITHUB_CDN/scripts/helper
 RUN cp world-cmd.sh /etc/profile.d/world-cmd.sh
 RUN cp gatorgrade /usr/local/bin/
