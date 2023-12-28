@@ -7,6 +7,7 @@ touch $ENV_MARKET
 touch $ENV_HELPER
 
 echo "#!/bin/bash" >> $ENV_MARKET
+echo "export WORLD_NAME=topia"
 echo "export DB_HOST=$DB_HOST" >> $ENV_MARKET
 echo "export DB_USER=$DB_USER" >> $ENV_MARKET
 echo "export DB_PASS=$DB_PASS" >> $ENV_MARKET
