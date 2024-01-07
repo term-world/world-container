@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
   tree \ 
   wget \
   tzdata \
+  sqlite3 \
   libcairo2-dev
 
 RUN apt-get remove python3 -y

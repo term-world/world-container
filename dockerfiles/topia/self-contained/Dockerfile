@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
   wget \
   tzdata \ 
   python3 \
+  sqlite3 \
   python3-dev \
   python3-pip \
   libcairo2-dev \
