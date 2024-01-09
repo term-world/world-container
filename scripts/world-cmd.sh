@@ -14,6 +14,10 @@ import sys
 inventory.items.trash(\"$1\",\"$2\")" "$@"; unset -f f;}; f'
 alias drop='f(){ python -c "import inventory
 inventory.items.drop(\"$1\",\"$2\")" "$@"; unset -f f;}; f'
+alias equip='f(){ python -c "import inventory
+inventory.items.equip(\"$1\")" "$@"; unset -f f;}; f'
+alias unequip='f(){ python -c "import inventory
+inventory.items.unequip(\"$1\")" "$@"; unset -f f;}; f'
 export PYTHONDONTWRITEBYTECODE=1
 
 # Additional package settings
