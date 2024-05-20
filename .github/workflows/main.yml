@@ -43,3 +43,21 @@ jobs:
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
           docker tag topia:slim $IMAGE_ID:slim
           docker push $IMAGE_ID:slim
+  build-topia-slim:
+    runs-on: ubuntu-latest
+    permissions:
+        packages: write
+        contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build image
+        run: |
+          cd dockerfiles/topia/api-container
+          docker build -f Dockerfile . -t topia:api-container
+      - name: Log in to container registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+      - name: Publish image
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/topia
+          docker tag topia:slim $IMAGE_ID:slim
+          docker push $IMAGE_ID:slim
