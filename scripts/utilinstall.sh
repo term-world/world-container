@@ -4,20 +4,20 @@ git clone https://github.com/term-world/term-util
 cd term-util
 cd libs
 cd couchsurf
-pip install .
+pip install . --break-system-packages
 cd ../gitit
-pip install .
+pip install . --break-system-packages
 cd ../inventory
 cd inventory
 dotenv set INV_PATH ~/.inv
 dotenv set INV_REGISTRY .registry
 cd ..
-pip install .
+pip install . --break-system-packages
 cd ../narrator
-pip install .
+pip install . --break-system-packages
 cd ../helper
-pip install .
+pip install . --break-system-packages
 cd ../resources
-pip install .
+pip install . --break-system-packages
 cd ../worldlib
-pip install .
+pip install . --break-system-packages
