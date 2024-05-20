@@ -31,7 +31,7 @@ RUN python -m pip install \
   requests \
   matplotlib \
   gatorgrader \
-  python-dotenv
+  python-dotenv --break-system-packages
 
 ARG GITHUB_CDN=https://raw.githubusercontent.com/term-world/world-container/main
 

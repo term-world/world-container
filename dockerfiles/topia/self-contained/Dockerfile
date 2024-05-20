@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y \
   python3-dev \
   python3-pip \
   libcairo2-dev \
-  python3.10-venv \
   python-is-python3
 
 RUN python -m pip install \
@@ -32,7 +31,7 @@ RUN python -m pip install \
   requests \
   matplotlib \
   gatorgrader \
-  python-dotenv
+  python-dotenv --break-system-packages
 
 ARG GITHUB_CDN=https://raw.githubusercontent.com/term-world/world-container/main
 
