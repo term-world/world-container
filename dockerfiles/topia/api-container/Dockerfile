@@ -33,6 +33,18 @@ RUN python -m pip install \
   gatorgrader \
   python-dotenv --break-system-packages
 
+RUN mkdir cli
+RUN cd cli
+RUN git init
+RUN git remote add -f origin https://github.com/term-world/api-services.git
+
+RUN git config core.sparseCheckout true
+
+RUN echo "cli/" >> .git/info/sparse-checkout
+RUN git pull origin main
+RUN ls
+RUN cd cli && python -m pip install . --break-system-packages
+
 ARG GITHUB_CDN=https://raw.githubusercontent.com/term-world/world-container/main
 
 RUN curl -fsSL $GITHUB_CDN/scripts/direvents.sh | cat >> /etc/bash.bashrc
