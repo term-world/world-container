@@ -4,6 +4,10 @@ FROM ubuntu
 # Set the DEBIAN_FRONTEND environment variable to noninteractive to disable interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Set the ip and port environment variables
+ENV ip=127.0.0.1
+ENV port=8000
+
 # Set the system timezone to America/New_York
 RUN echo "America/New_York" > /etc/timezone
 
