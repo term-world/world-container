@@ -1,5 +1,5 @@
 # Use the official Ubuntu image as the base image
-FROM ubuntu
+FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
 
 # Set the DEBIAN_FRONTEND environment variable to noninteractive to disable interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
