@@ -4,10 +4,6 @@ FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
 # Set the DEBIAN_FRONTEND environment variable to noninteractive to disable interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Set the ip and port environment variables
-ENV ip=127.0.0.1
-ENV port=8000
-
 # Set the system timezone to America/New_York
 RUN echo "America/New_York" > /etc/timezone
 
@@ -68,8 +64,6 @@ RUN curl -fsSL $GITHUB_CDN/scripts/gginstall.sh | sh
 RUN curl -fsSL https://api.github.com/repos/term-world/term-world-theme/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 RUN curl -fsSl https://api.github.com/repos/term-world/term-launcher/releases/latest | wget $(jq -r ".assets[].browser_download_url")
 
-# Download a VS Code extension and the "motd" file from the GitHub CDN
-RUN wget $GITHUB_CDN/extensions/bierner.markdown-checkbox-0.4.0.vsix
 RUN wget $GITHUB_CDN/scripts/motd
 
 # Copy the "motd" file to the "/etc/motd" path
