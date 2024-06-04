@@ -62,7 +62,6 @@ RUN curl -fsSL $GITHUB_CDN/scripts/gginstall.sh | sh
 
 # Download the latest release of the "term-world-theme" and "term-launcher" repositories
 RUN curl -fsSl https://api.github.com/repos/term-world/term-launcher/releases/latest | wget $(jq -r ".assets[].browser_download_url")
-RUN code --install-extension /term-world-launcher.vsix
 
 RUN wget $GITHUB_CDN/scripts/motd
 
