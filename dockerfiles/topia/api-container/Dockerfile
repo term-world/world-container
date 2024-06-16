@@ -72,6 +72,10 @@ RUN cp motd /etc/motd
 # Append a command to display the contents of the "motd" file to the bashrc file
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 
+# Set up NFS services
+RUN sudo update-rc.d rpcbind enable
+RUN sudo update-rc.d nfs-common enable
+
 # Add the "entrypoint.sh" file from the Docker build context to the image, and make the "entrypoint.sh" file executable
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
