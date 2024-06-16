@@ -75,6 +75,7 @@ RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 # Set up NFS services
 RUN sudo update-rc.d rpcbind enable
 RUN sudo update-rc.d nfs-common enable
+RUN sudo mkdir /city
 
 # Add the "entrypoint.sh" file from the Docker build context to the image, and make the "entrypoint.sh" file executable
 ADD entrypoint.sh entrypoint.sh
