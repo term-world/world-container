@@ -75,7 +75,7 @@ RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 # Set up NFS services
 RUN sudo update-rc.d rpcbind enable
 RUN sudo update-rc.d nfs-common enable
-RUN sudo mkdir /city
+RUN sudo mkdir /dungeon
 RUN sudo mkdir -p /run/sendsigs.omit.d
 RUN echo "sudo mount api.theterm.world:/world/dungeon /dungeon" >> /etc/bash.bashrc
 
