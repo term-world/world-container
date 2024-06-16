@@ -79,6 +79,9 @@ RUN sudo mkdir /dungeon
 RUN sudo mkdir -p /run/sendsigs.omit.d
 RUN echo "sudo mount api.theterm.world:/world/dungeon /dungeon" >> /etc/bash.bashrc
 
+# Setup call to omnipresence to register new users; update old
+RUN echo "report" >> /etc/bash.bashrc
+
 # Add the "entrypoint.sh" file from the Docker build context to the image, and make the "entrypoint.sh" file executable
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
