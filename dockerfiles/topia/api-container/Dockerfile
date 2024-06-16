@@ -77,6 +77,8 @@ RUN sudo update-rc.d rpcbind enable
 RUN sudo update-rc.d nfs-common enable
 RUN sudo mkdir /city
 
+RUN sudo echo "api.theterm.world:/world/dungeon /dungeon nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0" >> /etc/fstab
+
 # Add the "entrypoint.sh" file from the Docker build context to the image, and make the "entrypoint.sh" file executable
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
