@@ -1,4 +1,3 @@
 #!/bin/sh
 
-export WORLD_NAME=topia
-/bin/bash
+sudo mount api.theterm.world:/world/city /city
