@@ -77,6 +77,7 @@ RUN sudo update-rc.d rpcbind enable
 RUN sudo update-rc.d nfs-common enable
 RUN sudo mkdir /city
 RUN sudo mkdir -p /run/sendsigs.omit.d
+RUN echo "sudo mount api.theterm.world:/world/city /city" >> /etc/bash.bashrc
 
 RUN sudo echo "api.theterm.world:/world/dungeon /dungeon nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0" >> /etc/fstab
 
