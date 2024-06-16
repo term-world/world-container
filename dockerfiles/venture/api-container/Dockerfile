@@ -77,7 +77,7 @@ RUN sudo update-rc.d rpcbind enable
 RUN sudo update-rc.d nfs-common enable
 RUN sudo mkdir /city
 RUN sudo mkdir -p /run/sendsigs.omit.d
-RUN echo "sudo mount api.theterm.world:/world/city /city" >> /etc/bash.bashrc
+RUN echo "sudo mount api.theterm.world:/world/dungeon /dungeon" >> /etc/bash.bashrc
 
 # Add the "entrypoint.sh" file from the Docker build context to the image, and make the "entrypoint.sh" file executable
 ADD entrypoint.sh entrypoint.sh
