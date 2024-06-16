@@ -19,10 +19,11 @@ RUN apt-get update && apt-get install -y \
   tzdata \ 
   python3 \
   sqlite3 \
+  nfs-common \
   python3-dev \
   python3-pip \
   libcairo2-dev \
-  python-is-python3
+  python-is-python3 
 
 # Install the listed Python packages using pip
 RUN python -m pip install \
