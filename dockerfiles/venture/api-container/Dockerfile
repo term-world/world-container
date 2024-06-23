@@ -83,6 +83,9 @@ RUN sudo echo "api.theterm.world:/world/dungeon /dungeon nfs auto,nofail,noatime
 # Setup call to omnipresence to register new users; update old
 RUN echo "presence" >> /etc/bash.bashrc
 
+# Setup Python not to write __pycache__
+RUN export PYTHONDONTWRITEBYTECODE=1
+
 # Add the "entrypoint.sh" file from the Docker build context to the image, and make the "entrypoint.sh" file executable
 ADD entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
