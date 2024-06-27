@@ -72,6 +72,10 @@ RUN cp motd /etc/motd
 # Append a command to display the contents of the "motd" file to the bashrc file
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 
+# Install and setup 
+RUN sudo -E apt -y -qq install krb5-user
+RUN curl -fsSL $GITHUB_CDN/scripts/krb5.conf | cat > /etc/krb5.conf
+
 # Set up NFS services
 RUN sudo update-rc.d rpcbind enable
 RUN sudo update-rc.d nfs-common enable
